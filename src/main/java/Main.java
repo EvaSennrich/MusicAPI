@@ -34,14 +34,14 @@ public class Main {
 //        System.out.println(response.body());
 
             //getRelatedArtist --> need the change id part `?id=4q3ewBCX7sLwd24euuV69X"`
-            HttpRequest rel = HttpRequest.newBuilder()
-                    .uri(URI.create("https://spotify23.p.rapidapi.com/artist_related/?id=4q3ewBCX7sLwd24euuV69X"))
-                    .header("X-RapidAPI-Key", APIKEY)
-                    .header("X-RapidAPI-Host", APIHOST)
-                    .header("accept", "application/json")
-                    .method("GET", HttpRequest.BodyPublishers.noBody())
-                    .build();
-            HttpResponse<String> res = HttpClient.newHttpClient().send(rel, HttpResponse.BodyHandlers.ofString());
+//            HttpRequest rel = HttpRequest.newBuilder()
+//                    .uri(URI.create("https://spotify23.p.rapidapi.com/artist_related/?id=4q3ewBCX7sLwd24euuV69X"))
+//                    .header("X-RapidAPI-Key", APIKEY)
+//                    .header("X-RapidAPI-Host", APIHOST)
+//                    .header("accept", "application/json")
+//                    .method("GET", HttpRequest.BodyPublishers.noBody())
+//                    .build();
+//            HttpResponse<String> res = HttpClient.newHttpClient().send(rel, HttpResponse.BodyHandlers.ofString());
 
             //track request
             HttpRequest trackRequest = HttpRequest.newBuilder()
@@ -55,21 +55,21 @@ public class Main {
             //end of track request
 
             //Mapper for getting related artist using the artistJsonNode var
-            ObjectMapper mapper = new ObjectMapper();
-            try {
-                JsonNode artistJsonNode = mapper.readTree(res.body());
-                for (JsonNode jsonNode : artistJsonNode) {
-                    for (JsonNode artist : jsonNode) {
-
-                        String name = artist.get("name").toString();
-                        System.out.println(name);
-                    }
-                }
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            ObjectMapper mapper = new ObjectMapper();
+//            try {
+//                JsonNode artistJsonNode = mapper.readTree(res.body());
+//                for (JsonNode jsonNode : artistJsonNode) {
+//                    for (JsonNode artist : jsonNode) {
+//
+//                        String name = artist.get("name").toString();
+//                        System.out.println(name);
+//                    }
+//                }
+//            } catch (JsonProcessingException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
 
             //need the make the same mapper part but more complicated for getting the `uri` (these are the
             // actual artists name) string from the json file
