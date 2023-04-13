@@ -17,11 +17,13 @@ import java.net.http.HttpResponse;
 public class Main {
 
         public static void main(String[] args) throws IOException, InterruptedException {
-
+            //environmental vars for API keys
             Dotenv dotenv = Dotenv.load();
             String APIKEY = dotenv.get("APIKEY");
             String APIHOST = dotenv.get("APIHOST");
 
+
+            //getArtist --> need to change part where is just reading `?q=bad%20bunny`
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("https://spotify23.p.rapidapi.com/search/?q=bad%20bunny&type=artist&offset=0&limit=1&numberOfTopResults=1"))
                     .header("X-RapidAPI-Key", APIKEY)
@@ -31,6 +33,7 @@ public class Main {
             HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 //        System.out.println(response.body());
 
+            //getRelatedArtist --> need the change id part `?id=4q3ewBCX7sLwd24euuV69X"`
             HttpRequest rel = HttpRequest.newBuilder()
                     .uri(URI.create("https://spotify23.p.rapidapi.com/artist_related/?id=4q3ewBCX7sLwd24euuV69X"))
                     .header("X-RapidAPI-Key", APIKEY)
@@ -48,10 +51,10 @@ public class Main {
                     .method("GET", HttpRequest.BodyPublishers.noBody())
                     .build();
             HttpResponse<String> trackResponse = HttpClient.newHttpClient().send(trackRequest, HttpResponse.BodyHandlers.ofString());
-            System.out.println(trackResponse.body());
+//            System.out.println(trackResponse.body());
             //end of track request
 
-
+            //Mapper for getting related artist using the artistJsonNode var
             ObjectMapper mapper = new ObjectMapper();
             try {
                 JsonNode artistJsonNode = mapper.readTree(res.body());
@@ -67,7 +70,12 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            //need the make the same mapper part but more complicated for getting the `uri` (these are the
+            // actual artists name) string from the json file
         }
+
+
 
 
 }
