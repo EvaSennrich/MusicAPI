@@ -31,7 +31,7 @@ public class Main {
                     .method("GET", HttpRequest.BodyPublishers.noBody())
                     .build();
             HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-//        System.out.println(response.body());
+            System.out.println(response.body());
 
             //getRelatedArtist --> need the change id part `?id=4q3ewBCX7sLwd24euuV69X"`
 //            HttpRequest rel = HttpRequest.newBuilder()
@@ -46,12 +46,12 @@ public class Main {
             //track request
             HttpRequest trackRequest = HttpRequest.newBuilder()
                     .uri(URI.create("https://spotify23.p.rapidapi.com/tracks/?ids=4WNcduiCmDNfmTEz7JvmLv"))
-                    .header("X-RapidAPI-Key", "SIGN-UP-FOR-KEY")
-                    .header("X-RapidAPI-Host", "spotify23.p.rapidapi.com")
+                    .header("X-RapidAPI-Key", APIKEY)
+                    .header("X-RapidAPI-Host", APIHOST)
                     .method("GET", HttpRequest.BodyPublishers.noBody())
                     .build();
             HttpResponse<String> trackResponse = HttpClient.newHttpClient().send(trackRequest, HttpResponse.BodyHandlers.ofString());
-//            System.out.println(trackResponse.body());
+            //System.out.println(trackResponse.body());
             //end of track request
 
             //Mapper for getting related artist using the artistJsonNode var
