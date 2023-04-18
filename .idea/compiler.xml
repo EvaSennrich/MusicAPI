@@ -7,10 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="COP3530-Project" />
+        <module name="MusicAPI" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="MusicAPI" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
