@@ -1,6 +1,5 @@
 package API;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.cdimascio.dotenv.Dotenv;
@@ -11,18 +10,19 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class GetRelatedArtists {
+public class RelatedArtists {
 
-    public List<String> getRelatedArtists() {
+    public static List<String> getRelatedArtists() {
 
         //environmental vars for API keys
         Dotenv dotenv = Dotenv.load();
         String APIKEY = dotenv.get("APIKEY");
         String APIHOST = dotenv.get("APIHOST");
 
-        java.util.List<String> relatedArtists = new ArrayList<String>();
+      List<String> relatedArtists = new ArrayList<String>();
 
         HttpRequest rel = HttpRequest.newBuilder()
                 .uri(URI.create("https://spotify23.p.rapidapi.com/artist_related/?id=4q3ewBCX7sLwd24euuV69X"))

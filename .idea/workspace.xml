@@ -13,9 +13,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/API/GetTrack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/API/GetTrack.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+>>>>>>> 2cb5483038e9e4067e8ff96b4526ae6ea0ddc040
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +35,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/API/GetArtist.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -42,12 +56,30 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2OMKCt73fRJG1nA9zogsO4VW5rt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ChangesTree.GroupingKeys" value="module" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="JSON" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -57,6 +89,7 @@
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+>>>>>>> 2cb5483038e9e4067e8ff96b4526ae6ea0ddc040
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\agpen\IdeaProjects\MusicAPI" />
@@ -135,7 +168,49 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/libs/Files/Compsigh-WebDevelopment" />
+      <path value="$PROJECT_DIR$/libs/Files/FIU HW/Data Structures COP 3530/FIU cop3530/cop3530-assignment-3-EvaSennrich" />
+      <path value="$PROJECT_DIR$/libs/Files/FIU HW/Data Structures COP 3530/assigment-4" />
+      <path value="$PROJECT_DIR$/libs/Files/FIU HW/Data Structures COP 3530/cop-3530-module-1-EvaSennrich" />
+      <path value="$PROJECT_DIR$/libs/Files/FIU HW/Data Structures COP 3530/cop3530-assignment-2-EvaSennrich" />
+      <path value="$PROJECT_DIR$/libs/Files/FIU HW/Data Structures COP 3530/cop3530-assignment-3-EvaSennrich" />
+      <path value="$PROJECT_DIR$/libs/Files/FIU HW/Data Structures COP 3530/cop3530-assignment-5-EvaSennrich" />
+      <path value="$PROJECT_DIR$/libs/Files/IOS CODEPATH/Flix" />
+      <path value="$PROJECT_DIR$/libs/Files/IOS CODEPATH/Prework/Prework" />
+      <path value="$PROJECT_DIR$/libs/Files/IOS CODEPATH/instagram" />
+      <path value="$PROJECT_DIR$/libs/Files/IOS CODEPATH/twitter_ios_starter" />
+      <path value="$PROJECT_DIR$/libs/Files/IOS:Swift Angela Yu /AutoLayout-iOS13" />
+      <path value="$PROJECT_DIR$/libs/Files/IOS:Swift Angela Yu /Calculator-Layout-iOS13" />
+      <path value="$PROJECT_DIR$/libs/Files/IOS:Swift Angela Yu /Dicee-iOS13" />
+      <path value="$PROJECT_DIR$/libs/Files/IOS:Swift Angela Yu /EggTimer-iOS13" />
+      <path value="$PROJECT_DIR$/libs/Files/IOS:Swift Angela Yu /EggTimer-iOS13/EggTimer" />
+      <path value="$PROJECT_DIR$/libs/Files/IOS:Swift Angela Yu /Quizzler-iOS13" />
+      <path value="$PROJECT_DIR$/libs/Files/IOS:Swift Angela Yu /Xylophone-iOS13" />
+      <path value="$PROJECT_DIR$/libs/Files/JS John Smilga Course/javascript-basic-projects" />
+      <path value="$PROJECT_DIR$/libs/Files/Programming Projects/CardHacks" />
+      <path value="$PROJECT_DIR$/libs/Files/Programming Projects/CardHacks/shell" />
+      <path value="$PROJECT_DIR$/libs/Files/Programming Projects/CloudHop" />
+      <path value="$PROJECT_DIR$/libs/Files/Programming Projects/CloudHoppp" />
+      <path value="$PROJECT_DIR$/libs/Files/Programming Projects/portfolio" />
+      <path value="$PROJECT_DIR$/libs/Files/UPE/gitTest" />
+      <path value="$PROJECT_DIR$/libs/Files/UPE/portfolio" />
+      <path value="$PROJECT_DIR$/libs/Files/UPE/upeproject" />
+      <path value="$PROJECT_DIR$/libs/Files/cop3530-project-EvaSennrich" />
+      <path value="$PROJECT_DIR$/libs/Files/cop3530-project-EvaSennrich/MusicAPI" />
+      <path value="$PROJECT_DIR$/libs/Files/cop3530-project-EvaSennrich/MusicAPI-Group-Project-COP3530" />
+      <path value="$PROJECT_DIR$/libs/Files/cop3530-project-EvaSennrich/MusicAPII-Group-Project-COP3530" />
+      <path value="$PROJECT_DIR$/libs/Files/react-intro-workshop-master" />
+      <path value="$PROJECT_DIR$/libs/Files/shellhacks_intro_master" />
+      <path value="$PROJECT_DIR$/libs/Files/tutorial" />
+      <path value="$PROJECT_DIR$/libs/Files/upe-react-workshop" />
+      <path value="$PROJECT_DIR$/libs/MusicAPI" />
+    </ignored-roots>
     <MESSAGE value="Structure done" />
     <option name="LAST_COMMIT_MESSAGE" value="Structure done" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
