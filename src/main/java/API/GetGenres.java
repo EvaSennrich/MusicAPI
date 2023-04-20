@@ -14,14 +14,15 @@ import java.util.List;
 public class GetGenres {
 
 
-    public static List<String> getGenres(String ID) throws IOException, InterruptedException {
+    public static String getGenres(String artistID) throws IOException, InterruptedException {
         // Environmental vars for API keys
         Dotenv dotenv = Dotenv.load();
         String APIKEY = dotenv.get("APIKEY");
         String APIHOST = dotenv.get("APIHOST");
 
         // Create the request URI with the artist ID as a query parameter
-        URI uri = URI.create("https://spotify23.p.rapidapi.com/genre_view/?id=" + ID + "&content_limit=10&limit=10");
+        URI uri = URI.create("https://spotify23.p.rapidapi.com/artists/?ids=" + artistID);
+
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(uri)
@@ -30,24 +31,24 @@ public class GetGenres {
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
-
-
-        List<String> results = new ArrayList<>();
-        JSONObject obj = new JSONObject(response);
-        JSONArray genres = obj.getJSONObject("content").getJSONArray("items");
-
-        for (int i = 0; i < genres.length(); i++) {
-            String genreName = genres.getJSONObject(i).getString("name");
-            System.out.println(genreName);
-            results.add(genreName);
-            System.out.println(results);
-        }
-        return results;
-
+        return response.body();
 
     }//end of getGenres()
 
+
+    public static List<String> extractGenresFromResponse(String response) {
+        List<String> result = new ArrayList<>();
+        JSONObject obj = new JSONObject(response);
+        JSONArray genres = obj.getJSONArray("artists");
+
+
+        JSONArray genreName = genres.getJSONObject(0).getJSONArray("genres");
+        for (int i = 0; i < genreName.length(); i++) {
+            result.add((String) genreName.get(i));
+        }
+
+        return result;
+    }
 
 }//end of GetGenres class
 
