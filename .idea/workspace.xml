@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="989635de-24c3-4d44-9f51-9925ebda3b62" name="Changes" comment="" />
-
-    <list default="true" id="989635de-24c3-4d44-9f51-9925ebda3b62" name="Changes" comment="Structure done">
+    <list default="true" id="989635de-24c3-4d44-9f51-9925ebda3b62" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/API/GetBio.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/API/TrackContents.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_10_1.xml" beforeDir="false" />
@@ -15,12 +12,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__top_jfunc_json_Json_Gson_1_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/API/GetTrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/GetTrack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/API/GetArtist 2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/API/GetArtist 3.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/API/GetRelatedArtists.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/API/GetTrack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/API/GetTrack.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main 3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
-
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,11 +35,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
-  }
-}]]></component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
       <filtered-out-file-type name="LOCAL_BRANCH" />
@@ -79,7 +73,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ChangesTree.GroupingKeys" value="module" />
@@ -93,14 +86,6 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/agpen/IdeaProjects/MusicAPIv2"
-  }
-}]]></component>
-
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\agpen\IdeaProjects\MusicAPIv2" />
