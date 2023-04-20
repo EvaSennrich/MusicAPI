@@ -3,11 +3,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-import API.AlbumContents;
+import API.*;
 import org.json.JSONObject;
-
-import API.GetGenres;
-import API.SearchArtist;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -39,10 +36,10 @@ public class Main {
 
             try {
                 //search artist's info based on user's input from scanner
-                String res = SearchArtist.searchArtist(artistName);
+                String searchArtistRes = SearchArtist.searchArtist(artistName);
 
                 //new jsonObject to parse artist's ID
-                JSONObject result = new JSONObject(res);
+                JSONObject result = new JSONObject(searchArtistRes);
                 String id = result.getJSONObject("artists").getJSONArray("items").getJSONObject(0).getJSONObject("data").getString("uri");
                 //splits json uri to get artist's ID
                 String[] tokens = id.split(":");
@@ -58,18 +55,22 @@ public class Main {
 
                     hashmap.setHashMap(artistId, new HashMap<>());
 
-
+                    //get genres response
                     String genreResponse = API.GetGenres.getGenres(artistId);
-
-                    //extracts albums from the artist search/getArtist
+                    //extracts genres from the artist search/getArtist
                     List<String> genres = GetGenres.extractGenresFromResponse(genreResponse);
 
-                    //extracts genres from the artist search/getArtist
+                    //get top music response
+                    String topMscRes = API.TopMusic.getTopMusic(artistId);
+                    //extracts top music from response
+                    List<String> topMusics = API.TopMusic.extractTopMusicFromResponse(topMscRes);
+
+
+                    //extracts related artist  from the artist search/getArtist
                     List<String> relatedArtist = API.RelatedArtists.getRelatedArtists(artistId);
 
                     //extract albums from the artist search/getArtist
-                    List<AlbumContents> albums = SearchArtist.extractAlbumsFromResponse(res);
-
+                    List<AlbumContents> albums = SearchArtist.extractAlbumsFromResponse(searchArtistRes);
                     //sorts albums from newest to oldest released
                     Collections.sort(albums, (o1, o2) -> o2.getYear() - o1.getYear());
 
@@ -80,6 +81,9 @@ public class Main {
                             for (String relArtists : relatedArtist) {
                                 album.setRelatedArtist(relArtists);
                             }
+                                for (String top : topMusics) {
+                                    album.setTopMusic(top);
+                                }
                     }
 
                     hashmap.getHashMap(artistId).put("albumContents", albums);

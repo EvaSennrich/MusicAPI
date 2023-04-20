@@ -1,4 +1,5 @@
 package API;
+
 import io.github.cdimascio.dotenv.Dotenv;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,18 +12,16 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetGenres {
+public class TopMusic {
 
 
-    public static String getGenres(String artistID) throws IOException, InterruptedException {
+    public static String getTopMusic(String artistID) throws IOException, InterruptedException {
         // Environmental vars for API keys
         Dotenv dotenv = Dotenv.load();
         String APIKEY = dotenv.get("APIKEY");
         String APIHOST = dotenv.get("APIHOST");
 
-        // Create the request URI with the artist ID as a query parameter
-        URI uri = URI.create("https://spotify23.p.rapidapi.com/artists/?ids=" + artistID);
-
+        URI uri = URI.create("https://spotify23.p.rapidapi.com/artist_overview/?id=" + artistID);
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(uri)
@@ -33,23 +32,27 @@ public class GetGenres {
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         return response.body();
 
-    }//end of getGenres()
+    }//end of getTopMusic()
 
 
-    public static List<String> extractGenresFromResponse(String response) {
+    public static List<String> extractTopMusicFromResponse(String response) {
         List<String> result = new ArrayList<>();
         JSONObject obj = new JSONObject(response);
-        JSONArray genres = obj.getJSONArray("artists");
+        JSONArray topMusic = obj.getJSONObject("data").getJSONObject("artist").getJSONObject("discography").getJSONObject("topTracks").getJSONArray("items");
+//        System.out.println("topMusic" + topMusic);
 
-        JSONArray genreName = genres.getJSONObject(0).getJSONArray("genres");
 
-        for (int i = 0; i < genreName.length(); i++) {
-            result.add((String) genreName.get(i));
+        for (int i = 0; i < topMusic.length(); i++) {
+        JSONObject topMscName = topMusic.getJSONObject(i).getJSONObject("track");
+        String name = topMscName.get("name").toString();
+//            System.out.println(name);
+
+            result.add(name);
         }
 
         return result;
     }
 
-}//end of GetGenres class
 
 
+}// end of TopMusic class

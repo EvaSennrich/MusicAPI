@@ -8,12 +8,14 @@ public class AlbumContents {
     int year;
     List<String> genres;
     List<String> relatedArtist;
+    List<String> topMusic;
 
     public AlbumContents() {
         this.name = "";
         this.year = 0;
         this.genres = new ArrayList<>();
         this.relatedArtist = new ArrayList<>();
+        this.topMusic = new ArrayList<>();
 
     }
 
@@ -48,8 +50,17 @@ public class AlbumContents {
     public void setYear(int year) {
         this.year = year;
     }
+
+    public List<String> getTopMusic() {
+        return topMusic;
+    }
+
+    public void setTopMusic(String topMusic) {
+        this.topMusic.add(topMusic);
+    }
+
     public String toString() {
-        return String.format("Album Name: %-40s Released in: %-8d \t\t Genres: %s \t\t Related Artists: %s", this.name, this.year, this.genres, this.relatedArtist);
+        return String.format("Album Name: %-40s Released in: %-8d \t\t Genres: %s \t\t Related Artists: %s \t\t Top Music: %s", this.name, this.year, this.genres, this.relatedArtist, this.topMusic);
 
     }
 
