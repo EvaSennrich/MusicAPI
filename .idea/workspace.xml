@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="989635de-24c3-4d44-9f51-9925ebda3b62" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/API/AlbumContents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/AlbumContents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/API/GetArtist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/SearchArtist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/API/GetGenres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/GetGenres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/API/RelatedArtists.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/RelatedArtists.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/API/GetArtist 2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/API/GetArtist 3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/API/GetArtist.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/API/GetGenres.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/API/GetGenres.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/API/GetRelatedArtists.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/API/RelatedArtists.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/API/RelatedArtists.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/API/SearchArtist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/API/SearchArtist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main 3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-    </list>
+    <list default="true" id="989635de-24c3-4d44-9f51-9925ebda3b62" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
