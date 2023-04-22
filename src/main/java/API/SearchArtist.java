@@ -12,8 +12,7 @@ import java.net.http.HttpResponse;
 import java.net.URLEncoder;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -69,3 +68,4 @@ public class SearchArtist {
 
 
 }// end of class GetArtist()
+

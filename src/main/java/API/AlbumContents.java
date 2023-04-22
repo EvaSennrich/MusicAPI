@@ -60,7 +60,8 @@ public class AlbumContents {
     }
 
     public String toString() {
-        return String.format("Album Name: %-40s Released in: %-8d \t\t Genres: %s \t\t Related Artists: %s \t\t Top Music: %s", this.name, this.year, this.genres, this.relatedArtist, this.topMusic);
+        return String.format("Album Name: %-40s Released in: %-8d \t\t Genres: %s \t\t Related Artists: %s \t\t Top Music: %s ", this.name, this.year, this.genres, this.relatedArtist, this.topMusic);
+
 
     }
 

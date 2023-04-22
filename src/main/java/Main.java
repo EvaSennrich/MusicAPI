@@ -1,45 +1,93 @@
 import java.io.IOException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
 import API.*;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
-import java.util.*;
-
-
-
 public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        //RELATED ARTISTS --> need the change the fact is returning results from one specific artist
-//            List<String> relatedArtists = RelatedArtists.getRelatedArtists();
-//            HashMap map = new HashMap<>();
-//            map.put("Related Artists", relatedArtists);
-//            System.out.println(map);
-//======================================================================================================================
 
         String artistId;
         ArtistMap hashmap = new ArtistMap();
         Scanner scanner = new Scanner(System.in); //user's input
 
         while (true) {
+            System.out.println("Enter your choice:");
+            System.out.println("1. Search for a song name");
+            System.out.println("2. Search for an artist name");
+            System.out.println("3. Exit");
 
-            System.out.print("Enter artist name: ");
-            String artistName = scanner.nextLine();
-
-
+            int choice = 0;
             try {
-                //search artist's info based on user's input from scanner
-                String searchArtistRes = SearchArtist.searchArtist(artistName);
+                choice = scanner.nextInt();
+                scanner.nextLine(); // Clear the input buffer
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid choice.");
+                scanner.nextLine(); // Clear the input buffer
+                continue;
+            }
 
-                //new jsonObject to parse artist's ID
-                JSONObject result = new JSONObject(searchArtistRes);
+            if (choice == 1) {
+                System.out.print("Enter song name: ");
+                String songName = scanner.nextLine();
+                // Perform search for song name
+                String trackResponse = API.GetTrack.getTrack(songName);
+                List<String> tracks = GetTrack.extractTrackDataFromResponse(trackResponse);
+
+            } else if (choice == 2) {
+                System.out.print("Enter artist name: ");
+                String artistName = scanner.nextLine();
+                // Perform search for artist name
+//                String searchArtistRes = SearchArtist.searchArtist(artistName); //search artist's info based on user's input from scanner
+//                JSONObject result = new JSONObject(searchArtistRes);//new jsonObject to parse artist's ID
+//
+//                //extracts the artist ID
+//                String id = result.getJSONObject("artists").getJSONArray("items").getJSONObject(0).getJSONObject("data").getString("uri");
+//                //splits json uri to get artist's ID
+//                String[] tokens = id.split(":");
+//                artistId = tokens[tokens.length - 1];
+//
+//                //get genres response
+//                String genreResponse = API.GetGenres.getGenres(artistId);
+//                //extracts genres from the artist search/getArtist
+//                List<String> genres = GetGenres.extractGenresFromResponse(genreResponse);
+//
+//                //get top music response
+//                String topMscRes = API.TopMusic.getTopMusic(artistId);
+//                //extracts top music from response
+//                List<String> topMusics = API.TopMusic.extractTopMusicFromResponse(topMscRes);
+//
+//                //extracts related artist  from the artist search/getArtist
+//                List<String> relatedArtist = API.RelatedArtists.getRelatedArtists(artistId);
+//
+//                //extract albums from the artist search/getArtist
+//                List<AlbumContents> albums = SearchArtist.extractAlbumsFromResponse(searchArtistRes);
+//                //sorts albums from newest to oldest released
+//                Collections.sort(albums, (o1, o2) -> o2.getYear() - o1.getYear());
+//
+//                //Loops through the arraylists to print each album, genres, related artists.
+//                for (AlbumContents album : albums) {
+//                    for (String genre : genres) {
+//                            album.setGenres(genre);
+//                    }
+//                        for (String relArtists : relatedArtist) {
+//                            album.setRelatedArtist(relArtists);
+//                        }
+//                            for (String top : topMusics) {
+//                            album.setTopMusic(top);
+//                            }
+//                }//end of for each
+
+                try {
+
+                String searchArtistRes = SearchArtist.searchArtist(artistName); //search artist's info based on user's input from scanner
+                JSONObject result = new JSONObject(searchArtistRes);//new jsonObject to parse artist's ID
+
+                //extracts the artist ID
                 String id = result.getJSONObject("artists").getJSONArray("items").getJSONObject(0).getJSONObject("data").getString("uri");
                 //splits json uri to get artist's ID
                 String[] tokens = id.split(":");
@@ -48,12 +96,18 @@ public class Main {
 
                 //checks if the artist ID it's already on the hashmap
                 if (hashmap.getHashMapList().containsKey(artistId)) {
-                    System.out.println("Already in the HashMap");
+                    System.out.println("Extracting info from HashMap");
 //                    System.out.println("Album Name: WHATEVER");
                     System.out.println(hashmap.getHashMapList().toString());
-                } else {
+                } else { //else retrieves the artist's info from the API
 
+                    //and then store it in the hashmap
                     hashmap.setHashMap(artistId, new HashMap<>());
+
+
+                    //getting artist bio
+                    String bioResponse = API.GetBio.getBio(artistId);
+                    List<String> bio = GetBio.extractBiosFromResponse(bioResponse);
 
                     //get genres response
                     String genreResponse = API.GetGenres.getGenres(artistId);
@@ -65,7 +119,6 @@ public class Main {
                     //extracts top music from response
                     List<String> topMusics = API.TopMusic.extractTopMusicFromResponse(topMscRes);
 
-
                     //extracts related artist  from the artist search/getArtist
                     List<String> relatedArtist = API.RelatedArtists.getRelatedArtists(artistId);
 
@@ -74,33 +127,47 @@ public class Main {
                     //sorts albums from newest to oldest released
                     Collections.sort(albums, (o1, o2) -> o2.getYear() - o1.getYear());
 
+                    //Loops through the arraylists to print each album, genres, related artists.
                     for (AlbumContents album : albums) {
                         for (String genre : genres) {
                             album.setGenres(genre);
                         }
-                            for (String relArtists : relatedArtist) {
-                                album.setRelatedArtist(relArtists);
-                            }
-                                for (String top : topMusics) {
-                                    album.setTopMusic(top);
-                                }
-                    }
+                        for (String relArtists : relatedArtist) {
+                            album.setRelatedArtist(relArtists);
+                        }
+                        for (String top : topMusics) {
+                            album.setTopMusic(top);
+                        }
+                    }//end of for each
+
 
                     hashmap.getHashMap(artistId).put("albumContents", albums);
+                    System.out.println("____________________________________________________________________________________________________________________________________________________________________________________________________________________");
                     System.out.println("Storing data in HashMap " + hashmap.getHashMap(artistId).toString());
                     System.out.println();
 
+
                     for (AlbumContents album : albums) {
+                        System.out.println("=============================================================================================================================================================================================================");
                         System.out.println(album.toString());
+                        System.out.println("=============================================================================================================================================================================================================");
+
                     }
+
                 }
 
             } catch(IOException | InterruptedException e){
                 e.printStackTrace();
-            }//end of try catch
+            }
+
+            } else if (choice == 3) {
+                System.out.println("Exiting...");
+                break;
+            } else {
+                System.out.println("Invalid choice. Please enter a valid choice.");
+            }
         }
 
-    }//end of main
-
-
-} //end of Main class
+        scanner.close();
+    }
+}
