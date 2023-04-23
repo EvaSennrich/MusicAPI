@@ -3,20 +3,20 @@ package API;
 public class TrackContents {
     String artistName;
     String trackName;
-    int year;
+    String trackAlbum;
 
     public TrackContents() {
         this.artistName = "";
         this.trackName = "";
-        this.year = 0;
+        this.trackAlbum = "";
     }
 
     public String getArtistName() {
         return artistName;
     }
 
-    public int getYear() {
-        return year;
+    public String getTrackAlbum() {
+        return trackAlbum;
     }
 
     public String getTrackName() {
@@ -27,16 +27,16 @@ public class TrackContents {
         this.artistName = name;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setTrackAlbum(String trackAlbum) {
+        this.trackAlbum = trackAlbum;
     }
 
     public void setTrackName(String trackName) {
         this.trackName = trackName;
     }
 
-    public String toStringTrack() {
-        return String.format("Track Name: %-30s Artist Name: %d", this.trackName, this.artistName);
+    public String toString() {
+        return String.format("Track Name: %-30s Artist Name: %-30s Album Name: %-30s", this.trackName, this.artistName, this.trackAlbum);
 
     }
 

@@ -6,12 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="989635de-24c3-4d44-9f51-9925ebda3b62" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/API/AlbumContents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/AlbumContents.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/API/GetBio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/GetBio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/API/GetTrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/GetTrack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/API/SearchArtist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/SearchArtist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/API/TrackContents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/TrackContents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ArtistMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ArtistMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/API/GetBio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/API/GetBio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/API/GetTrack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/API/GetTrack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/API/TrackContents.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/API/TrackContents.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +97,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="MusicAPI" />
+      <module name="COP3530-Project" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -124,7 +127,25 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -142,21 +163,6 @@
                 </map>
               </option>
             </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/master" />
-                </option>
-              </RecentGroup>
-            </list>
           </value>
         </entry>
       </map>

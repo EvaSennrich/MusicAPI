@@ -1,12 +1,10 @@
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-public class ArtistMap {
+public class TrackMap {
 
     HashMap<String, HashMap> hashMapList;
 
-    public ArtistMap() {
+    public TrackMap() {
         this.hashMapList = new HashMap<>() {
         };
     }
@@ -26,3 +24,4 @@ public class ArtistMap {
 
 
 }
+

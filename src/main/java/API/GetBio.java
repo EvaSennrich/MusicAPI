@@ -47,7 +47,7 @@ public class GetBio {
             String trimmedBio = name.substring(0, Math.min(name.length(), 855));
             String correctedBio = trimmedBio.replaceAll("<a[^>]*>.*?</a>", "");
 
-            printFormattedBio(correctedBio, 100);
+            //printFormattedBio(correctedBio, 100);
 
             result.add(correctedBio);
         }
