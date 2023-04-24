@@ -15,7 +15,7 @@ import java.util.List;
 
 public class RelatedArtists {
 
-    public static List<String> getRelatedArtists() {
+    public static List<String> getRelatedArtists(String artistID) {
 
         //environmental vars for API keys
         Dotenv dotenv = Dotenv.load();
@@ -25,21 +25,13 @@ public class RelatedArtists {
       List<String> relatedArtists = new ArrayList<String>();
 
         HttpRequest rel = HttpRequest.newBuilder()
-                .uri(URI.create("https://spotify23.p.rapidapi.com/artist_related/?id=4q3ewBCX7sLwd24euuV69X"))
+                .uri(URI.create("https://spotify23.p.rapidapi.com/artist_related/?id=" + artistID))
                 .header("X-RapidAPI-Key", APIKEY)
                 .header("X-RapidAPI-Host", APIHOST)
                 .header("accept", "application/json")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
-        HttpResponse<String> res = null;
-
-//        try {
-//            res = HttpClient.newHttpClient().send(rel, HttpResponse.BodyHandlers.ofString());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        HttpResponse<String> res;
 
         ObjectMapper mapper = new ObjectMapper();
         try {

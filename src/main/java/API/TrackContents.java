@@ -1,31 +1,42 @@
 package API;
 
 public class TrackContents {
-    String name;
-    int year;
+    String artistName;
+    String trackName;
+    String trackAlbum;
 
-    public void TrackContents() {
-        this.name = "";
-        this.year = 0;
+    public TrackContents() {
+        this.artistName = "";
+        this.trackName = "";
+        this.trackAlbum = "";
     }
 
-    public String getName() {
-        return name;
+    public String getArtistName() {
+        return artistName;
     }
 
-    public int getYear() {
-        return year;
+    public String getTrackAlbum() {
+        return trackAlbum;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getTrackName() {
+        return trackName;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setArtistName(String name) {
+        this.artistName = name;
     }
+
+    public void setTrackAlbum(String trackAlbum) {
+        this.trackAlbum = trackAlbum;
+    }
+
+    public void setTrackName(String trackName) {
+        this.trackName = trackName;
+    }
+
     public String toString() {
-        return String.format("Track Name: %-50s Released in: %d", this.name, this.year);
+        return String.format("Track Name: %-30s Artist Name: %-30s Album Name: %-30s", this.trackName, this.artistName, this.trackAlbum);
 
     }
 

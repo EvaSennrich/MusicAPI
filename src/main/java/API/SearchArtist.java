@@ -1,6 +1,7 @@
 package API;
 
 import io.github.cdimascio.dotenv.Dotenv;
+import io.github.cdimascio.dotenv.Dotenv;
 
 import java.io.IOException;
 import java.net.URI;
@@ -11,18 +12,16 @@ import java.net.http.HttpResponse;
 import java.net.URLEncoder;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-import org.json.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 
-public class GetArtist {
+public class SearchArtist {
 
 
-    public static String getArtist(String artistName) throws IOException, InterruptedException {
+    public static String searchArtist(String artistName) throws IOException, InterruptedException {
         //environmental vars for API keys
         Dotenv dotenv = Dotenv.load();
         String APIKEY = dotenv.get("APIKEY");
@@ -69,3 +68,4 @@ public class GetArtist {
 
 
 }// end of class GetArtist()
+
