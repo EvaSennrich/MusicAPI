@@ -12,7 +12,9 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         String artistId;
+        String trackId;
         ArtistMap hashmap = new ArtistMap();
+        TrackMap trackmap = new TrackMap();
         Scanner scanner = new Scanner(System.in); //user's input
 
         while (true) {
@@ -33,10 +35,51 @@ public class Main {
 
             if (choice == 1) {
                 System.out.print("Enter song name: ");
-                String songName = scanner.nextLine();
+                String trackName = scanner.nextLine();
                 // Perform search for song name
-                String trackResponse = API.GetTrack.getTrack(songName);
-                List<String> tracks = GetTrack.extractTrackDataFromResponse(trackResponse);
+
+
+                String trackResponse = API.GetTrack.getTrack(trackName); //search artist's info based on user's input from scanner
+                JSONObject result = new JSONObject(trackResponse);//new jsonObject to parse artist's ID
+
+                //extracts the track ID
+                String id = result.getJSONObject("tracks").getJSONArray("items").getJSONObject(0).getJSONObject("data").getString("uri");
+                //splits json uri to get track's ID
+                String[] tokens = id.split(":");
+                trackId = tokens[tokens.length - 1];
+
+                System.out.println("Track ID: " + trackId);
+                if(trackmap.getHashMapList().containsKey(trackId)){
+                    System.out.println("");
+                    System.out.println("Extracting info from TrackMap");
+                    System.out.println("==============================" + "Track Info" + "=================================");
+                    System.out.println();
+                    System.out.println(trackmap.getHashMap(trackId).get("trackContents").toString());
+                    System.out.println();
+                    System.out.println("==================================================================================");
+
+                }
+                else{
+
+                    System.out.println("____________________________________________________________________________________________________________________________________________________________________________________________________________________");
+                    System.out.println("Storing data in TrackMap");
+                    System.out.println();
+                    trackmap.setHashMap(trackId, new HashMap<>());
+                    List<TrackContents> tracks = GetTrack.extractTrackDataFromResponse(trackResponse);
+                    trackmap.getHashMap(trackId).put("trackContents", tracks.toString());
+                    System.out.println("==============================" + "Track Info" + "=================================");
+                    System.out.println();
+                    System.out.println(tracks.toString());
+                    System.out.println();
+                    System.out.println("==================================================================================");
+
+                }
+
+
+
+
+
+
 
             } else if (choice == 2) {
                 System.out.print("Enter artist name: ");
@@ -96,9 +139,19 @@ public class Main {
 
                 //checks if the artist ID it's already on the hashmap
                 if (hashmap.getHashMapList().containsKey(artistId)) {
+                    System.out.println("");
                     System.out.println("Extracting info from HashMap");
-//                    System.out.println("Album Name: WHATEVER");
-                    System.out.println(hashmap.getHashMapList().toString());
+                    GetBio.printFormattedBio(hashmap.getHashMap(artistId).get("bioContents").toString(), 100);
+
+                    List<AlbumContents> albums = (List<AlbumContents>) hashmap.getHashMap(artistId).get("albumContents");
+                    for (AlbumContents album : albums) {
+                        System.out.println("=============================================================================================================================================================================================================");
+                        System.out.println(album.toString());
+                        System.out.println("=============================================================================================================================================================================================================");
+
+                    }
+
+
                 } else { //else retrieves the artist's info from the API
 
                     //and then store it in the hashmap
@@ -108,6 +161,8 @@ public class Main {
                     //getting artist bio
                     String bioResponse = API.GetBio.getBio(artistId);
                     List<String> bio = GetBio.extractBiosFromResponse(bioResponse);
+
+                    GetBio.printFormattedBio(bio.get(0), 100);
 
                     //get genres response
                     String genreResponse = API.GetGenres.getGenres(artistId);
@@ -142,8 +197,10 @@ public class Main {
 
 
                     hashmap.getHashMap(artistId).put("albumContents", albums);
+                    hashmap.getHashMap(artistId).put("bioContents", bio.get(0));
                     System.out.println("____________________________________________________________________________________________________________________________________________________________________________________________________________________");
-                    System.out.println("Storing data in HashMap " + hashmap.getHashMap(artistId).toString());
+                    //System.out.println("Storing data in HashMap " + hashmap.getHashMap(artistId).toString());
+                    System.out.println("Storing data in HashMap");
                     System.out.println();
 
 

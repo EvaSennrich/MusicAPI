@@ -51,8 +51,8 @@ public class GetTrack {
     }//end of getTrack()
 
 
-    public static List<String> extractTrackDataFromResponse(String response) {
-        List<String> result = new ArrayList<String>();
+    public static List<TrackContents> extractTrackDataFromResponse(String response) {
+        List<TrackContents> result = new ArrayList<TrackContents>();
         JSONObject obj = new JSONObject(response);
         JSONArray tracks = obj.getJSONObject("tracks").getJSONArray("items");
 
@@ -63,26 +63,31 @@ public class GetTrack {
         String trackName = tracks.getJSONObject(0).getJSONObject("data").getString("name");
         //extracts artist name from track
         JSONArray trackArtistsNames = tracks.getJSONObject(0).getJSONObject("data").getJSONObject("artists").getJSONArray("items");
+        String trackAlbum = tracks.getJSONObject(0).getJSONObject("data").getJSONObject("albumOfTrack").getString("name");
 
             //for loop that iterates through the artists object to get multiple artists names if so
             for (int j = 0; j < trackArtistsNames.length(); j++) {
                 String artistsNames = trackArtistsNames.getJSONObject(j).getJSONObject("profile").getString("name");
 //                System.out.println("artistsNames "+ artistsNames);
-
-            contents.setArtistName(artistsNames);
-            result.add(artistsNames);
+                if(contents.getArtistName() == ""){
+                    contents.setArtistName(contents.getArtistName() + artistsNames);
+                }
+                else {
+                    contents.setArtistName(contents.getArtistName() + ", " + artistsNames);
+                }
 
             }//end of loop
 
             contents.setTrackName(trackName);
-            result.add(trackName);
+            contents.setTrackAlbum(trackAlbum);
+            result.add(contents);
 
-        System.out.println("==============================" + "Track Info" + "=================================");
+       /* System.out.println("==============================" + "Track Info" + "=================================");
         System.out.println();
-        System.out.println("results" + result);
+        contents.toStringTrack();
         System.out.println();
         System.out.println("==================================================================================");
-
+*/
         return result;
 
     }//end of extractAlbumsFromResponse()
