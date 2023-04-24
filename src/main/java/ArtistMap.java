@@ -23,3 +23,5 @@ public class ArtistMap {
         this.hashMapList.put(key, value);
     }
 }
+
+
