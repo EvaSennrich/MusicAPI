@@ -60,9 +60,10 @@ public class AlbumContents {
     }
 
     public String toString() {
-        return String.format("Album Name: %-40s Released in: %-8d \t\t Genres: %s \t\t Related Artists: %s \t\t Top Music: %s ", this.name, this.year, this.genres, this.relatedArtist, this.topMusic);
-
-
+        return String.format("\n -Album Name: %-40s Released in: %-8d \n -Genres: %s \n -Related Artists: %s \n -Top Music: %s \n", this.name, this.year, this.genres, this.relatedArtist, this.topMusic);
+    }
+    public String toStringRelArtists() {
+        return String.format("-Related Artists: %s \n", this.relatedArtist);
     }
 
 

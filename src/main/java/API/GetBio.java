@@ -47,7 +47,7 @@ public class GetBio {
             String trimmedBio = name.substring(0, Math.min(name.length(), 855));
             String correctedBio = trimmedBio.replaceAll("<a[^>]*>.*?</a>", "");
 
-            //printFormattedBio(correctedBio, 100);
+            printFormattedBio(correctedBio, 100);
 
             result.add(correctedBio);
         }
@@ -70,7 +70,10 @@ public class GetBio {
         }
 
         System.out.println("=======================================================================================================");
-        System.out.println("Artist Biography:\n" + sb.toString());
+        System.out.println("                                     Artist Biography \n");
+        System.out.println("=======================================================================================================");
+        System.out.println(sb);
+
     }
 
 

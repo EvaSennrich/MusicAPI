@@ -26,15 +26,6 @@ public class GetTrack {
         String APIKEY = dotenv.get("APIKEY");
         String APIHOST = dotenv.get("APIHOST");
 
-//        HttpRequest request = HttpRequest.newBuilder()
-//                .uri(URI.create("https://spotify23.p.rapidapi.com/search/?q=" + songName + "&type=tracks&offset=0&limit=10&numberOfTopResults=5"))
-//                .header("X-RapidAPI-Key", APIKEY)
-//                .header("X-RapidAPI-Host", APIHOST)
-//                .method("GET", HttpRequest.BodyPublishers.noBody())
-//                .build();
-//        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-//        System.out.println(response.body());
-
         String encodedSongName = URLEncoder.encode(songName, StandardCharsets.UTF_8);
 
         HttpRequest request = HttpRequest.newBuilder()
@@ -51,8 +42,8 @@ public class GetTrack {
     }//end of getTrack()
 
 
-    public static List<TrackContents> extractTrackDataFromResponse(String response) {
-        List<TrackContents> result = new ArrayList<TrackContents>();
+    public static List<String> extractTrackDataFromResponse(String response) {
+        List<String> result = new ArrayList<String>();
         JSONObject obj = new JSONObject(response);
         JSONArray tracks = obj.getJSONObject("tracks").getJSONArray("items");
 
@@ -63,31 +54,27 @@ public class GetTrack {
         String trackName = tracks.getJSONObject(0).getJSONObject("data").getString("name");
         //extracts artist name from track
         JSONArray trackArtistsNames = tracks.getJSONObject(0).getJSONObject("data").getJSONObject("artists").getJSONArray("items");
-        String trackAlbum = tracks.getJSONObject(0).getJSONObject("data").getJSONObject("albumOfTrack").getString("name");
 
             //for loop that iterates through the artists object to get multiple artists names if so
             for (int j = 0; j < trackArtistsNames.length(); j++) {
                 String artistsNames = trackArtistsNames.getJSONObject(j).getJSONObject("profile").getString("name");
 //                System.out.println("artistsNames "+ artistsNames);
-                if(contents.getArtistName() == ""){
-                    contents.setArtistName(contents.getArtistName() + artistsNames);
-                }
-                else {
-                    contents.setArtistName(contents.getArtistName() + ", " + artistsNames);
-                }
+
+            contents.setArtistName(artistsNames);
+            result.add(artistsNames);
 
             }//end of loop
 
             contents.setTrackName(trackName);
-            contents.setTrackAlbum(trackAlbum);
-            result.add(contents);
+            result.add(trackName);
 
-       /* System.out.println("==============================" + "Track Info" + "=================================");
+        System.out.println("==============================" + "Track Info" + "=================================");
         System.out.println();
-        contents.toStringTrack();
+        System.out.println("Artist Name: " + result.get(0));
+        System.out.println("Song Name: " + result.get(1));
         System.out.println();
-        System.out.println("==================================================================================");
-*/
+        System.out.println("===========================================================================");
+
         return result;
 
     }//end of extractAlbumsFromResponse()
